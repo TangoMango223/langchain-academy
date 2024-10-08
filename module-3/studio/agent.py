@@ -47,7 +47,7 @@ def assistant(state: MessagesState):
 # Build graph
 builder = StateGraph(MessagesState)
 builder.add_node("assistant", assistant)
-builder.add_node("tools", ToolNode(tools))
+builder.add_node("tools", ToolNode(tools)) # There will be a human approval before this runs.
 builder.add_edge(START, "assistant")
 builder.add_conditional_edges(
     "assistant",
@@ -58,4 +58,7 @@ builder.add_conditional_edges(
 builder.add_edge("tools", "assistant")
 
 # Compile graph
-graph = builder.compile()
+
+# Christine added - interrupt before via code.
+# Now, in LangStudio or in Juypternotebook, there will need to be a yes or human approval before continuing.
+graph = builder.compile(interrupt_before= ["tools"])
