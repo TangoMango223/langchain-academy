@@ -2,7 +2,7 @@
 
 .idea/
 
-# I fucked up the setup so we will have this ignored:
+# I messed up the setup so we will have this ignored:
 lc-academy-env/bin/activate
 
 # Byte-compiled / optimized / DLL files
